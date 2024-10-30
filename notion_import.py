@@ -141,5 +141,18 @@ if __name__ == "__main__":
                 file.write(f"Import problem for {page_id}, {front_side}, {back_side} - {str(e)}\n")
     
             
-    
-    
+    sync_payload = {
+        "action": "sync",
+        "version": 6
+    }
+
+    # Send the request to AnkiConnect
+    response = requests.post(ANKICONNECT_URL, json=sync_payload)
+
+    # Check the response
+    if response.json().get("error") is None:
+        print("Sync successful!")
+    else:
+        with open('logfile.log', 'a') as file:
+            file.write(f'Sync error:", {response.json()["error"]}')
+        
