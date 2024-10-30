@@ -58,7 +58,8 @@
 ``https://www.notion.so/1123casad801sa6ds75dasdae91c39asd?v=dsad8as6asndasd&pvs=4``  
 database id is
 ``1123casad801sa6ds75dasdae91c39asd``
-6. Update notion_import.py and notion_import_other_way.py the same way as import.py and import_other_way.py to include yours deck's name, model's name and fields
-7. Set CRON or Task scheduler to run those scripts
+6. Update notion_import.py the same way as import.py to include yours deck's name, model's name and fields
+7. Set in notion_import.py variable INCLUDE_REVERSE to True if you want to insert into the same deck both sides, False otherwise
+8. Set CRON or Task scheduler to run those scripts
 ### if any error occurs, it will be stored into .log file as well.
 
