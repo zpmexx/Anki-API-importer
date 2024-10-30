@@ -44,3 +44,21 @@
 8. Run import.py or import_other_way.py scripts to import data into Anki deck.
 
 ### if any error occurs, it will be stored into .log file.
+
+---
+
+# Notion update
+### If you want add new cards from diffrent devices and automate import (via cron or windows task scheduler) you could use external site like [Notion](https://www.notion.so/) to store data, connect automatically via API and manage AndkiDroid new cards.
+
+1. Create account [Notion](https://www.notion.so/)
+2. Create table with 2 columns similar to ->> **example.png**
+3. Create  [Notion integration](https://developers.notion.com/docs/create-a-notion-integration) and save NOTION_API_KEY (Integral Integration Secret)
+4. Connect created integration to notion table (on notion's table site **...** -> connect to)
+5. Fill into .env file NOTION_API_KEY and DATABASE_ID (notion's table site -> share -> copy link (from first / till ? < database id) for example in link:
+``https://www.notion.so/1123casad801sa6ds75dasdae91c39asd?v=dsad8as6asndasd&pvs=4``  
+database id is
+``1123casad801sa6ds75dasdae91c39asd``
+6. Update notion_import.py and notion_import_other_way.py the same way as import.py and import_other_way.py to include yours deck's name, model's name and fields
+7. Set CRON or Task scheduler to run those scripts
+### if any error occurs, it will be stored into .log file as well.
+
