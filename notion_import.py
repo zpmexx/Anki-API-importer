@@ -69,6 +69,7 @@ def add_new_card(card_data, page_id, reverse):
         log_message = f"{formatDateTime} Card {new_card['params']['note']['fields']} added successfully!"
         with open('logfile.log', 'a') as file:
             file.write(log_message + "\n")
+            
         print(f"{log_message}")
         
         #include reversed
@@ -93,6 +94,9 @@ def add_new_card(card_data, page_id, reverse):
                 log_message = f"{formatDateTime} Card {new_card['params']['note']['fields']} in reverse added successfully!"
                 with open('logfile.log', 'a') as file:
                     file.write(log_message + "\n")
+                 
+
+                    
                 print(f"{log_message}")
             else:
                 error_message = f"{formatDateTime} Error: {response.json()}"
@@ -136,6 +140,9 @@ if __name__ == "__main__":
     }
         try:
             add_new_card(new_card, page_id, INCLUDE_REVERSE)
+            #Add words to history.txt if card added succesfully to AnkiDroid deck
+            with open ('words_history.txt', 'a') as file:
+                file.write(f"{front_side},{back_side}\n")
         except Exception as e:
             with open('logfile.log', 'a') as file:
                 file.write(f"Import problem for {page_id}, {front_side}, {back_side} - {str(e)}\n")
