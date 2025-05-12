@@ -71,6 +71,7 @@ database id is
 3. You need to create a passwords.txt file in \ankinotion\src\ankinotion\resources with the same data as in the .env file, separated by commas, as shown below:
 
 `NOTION_API_KEY,<your NOTION_API_KEY from .env file`
+
 `DATABASE_ID,<your DATABASE_ID from .env file>`
 
 4. To run the script from your PC, type `briefcase dev` in the terminal.
