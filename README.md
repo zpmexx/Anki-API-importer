@@ -84,3 +84,6 @@ database id is
 
 6. The app file will be stored in ankinotion\build\ankinotion\android\gradle\app\build\outputs\apk\debug
 7. Copy the .apk file to your phone and install it.
+8. Information about a successful import or any errors will be stored below the Add button.
+
+![App Image](notionanki.jpg)
