@@ -2,12 +2,17 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN
 import requests
-import json
-from datetime import datetime
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
+module_dir = os.path.dirname(__file__)  # Path to the directory of the current file
+file_path = os.path.join(module_dir, 'resources', 'passwords.txt')
+final_d = {}
+with open (file_path, 'r') as file:
+    for line in file.readlines():
+        key, value = line.rstrip('\n').split(',')
+        final_d[key] = value
+        
+
 
 class AnkiNotionApp(toga.App):
     def startup(self):
@@ -64,8 +69,8 @@ class AnkiNotionApp(toga.App):
         self.text_input.value = ""
 
     def add_entry_to_notion(self, text):
-        NOTION_API_KEY = os.getenv("NOTION_API_KEY")
-        DATABASE_ID = os.getenv("DATABASE_ID")
+        NOTION_API_KEY = final_d['NOTION_API_KEY']
+        DATABASE_ID = final_d['DATABASE_ID']
 
         if not NOTION_API_KEY or not DATABASE_ID:
             raise ValueError("Missing NOTION_API_KEY or DATABASE_ID in .env")

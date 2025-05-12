@@ -64,3 +64,22 @@ database id is
 9. The file words_history.txt will contain all cards imported into the AnkiDroid deck, separated by commas. You can share or use this file to push cards back into Notion (e.g., to share with another user). Simply run the export_to_notion.py script to export the data to the Notion database.
 ### if any error occurs, it will be stored into .log file as well.
 
+# Beeware app to add word to notion's db
+1. The ankinotion folder contains the source code for a BeeWare Toga application that you can install on your Android phone. It allows you to quickly send words to your Notion database, making it easier than using the Notion app itself and serving as a convenient alternative.
+2. You may need to install the required modules using the re.txt file:
+`pip install -r re.txt`.
+3. You need to create a passwords.txt file in \ankinotion\src\ankinotion\resources with the same data as in the .env file, separated by commas, as shown below:
+
+`NOTION_API_KEY,<your NOTION_API_KEY from .env file`
+`DATABASE_ID,<your DATABASE_ID from .env file>`
+
+4. To run the script from your PC, type `briefcase dev` in the terminal.
+5. If you want to create an Android app, run the following commands:
+	
+	* briefcase create 
+	* briefcase build
+	* briefcase create android 
+	* briefcase build android
+
+6. The app file will be stored in ankinotion\build\ankinotion\android\gradle\app\build\outputs\apk\debug
+7. Copy the .apk file to your phone and install it.

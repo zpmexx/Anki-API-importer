@@ -13,18 +13,24 @@ formal_name = "ankinotion"
 description = "My first application"
 long_description = """More details about the app should go here.
 """
+
 sources = [
-    "src/ankinotion",
+    "src/ankinotion", "src/ankinotion/resources/hasla.txt",
 ]
 test_sources = [
     "tests",
 ]
 
-requires = [
+requires = ['requests'
 ]
+
+
+
 test_requires = [
     "pytest",
 ]
+
+
 
 [tool.briefcase.app.ankinotion.macOS]
 universal_build = true
